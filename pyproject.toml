@@ -1,5 +1,5 @@
 [project]
-name = "arxiv-mcp-server"
+name = "arxiv-paper-mcp-server"
 version = "0.1.0"
 description = "MCP Server for searching and reading arXiv papers"
 readme = "README.md"
