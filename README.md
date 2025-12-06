@@ -5,21 +5,27 @@ MCP Server for searching and reading arXiv papers directly from Claude Code.
 ## Installation
 
 ```bash
-uv sync
+# Using uvx (recommended)
+uvx arxiv-mcp-server
+
+# Or install with pip
+pip install arxiv-mcp-server
 ```
 
-## Usage
+## Usage with Claude Code
 
-### Add to Claude Code
+```bash
+claude mcp add arxiv-server -- uvx arxiv-mcp-server
+```
 
-Add to your Claude Code MCP settings (`~/.claude/claude_desktop_config.json`):
+Or manually add to your Claude Code MCP settings:
 
 ```json
 {
   "mcpServers": {
     "arxiv": {
-      "command": "uv",
-      "args": ["--directory", "/path/to/arxiv-mcp", "run", "arxiv-mcp-server"]
+      "command": "uvx",
+      "args": ["arxiv-mcp-server"]
     }
   }
 }

@@ -1,0 +1,8 @@
+.claude/
+.venv/
+.vscode/
+__pycache__/
+*.pyc
+dist/
+*.egg-info/
+
