@@ -1,0 +1,20 @@
+[project]
+name = "arxiv-mcp-server"
+version = "0.1.0"
+description = "MCP Server for searching and reading arXiv papers"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.0.0",
+    "arxiv>=2.0.0",
+    "pymupdf>=1.24.0",
+]
+
+[project.scripts]
+arxiv-mcp-server = "arxiv_mcp_server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/arxiv_mcp_server"]
