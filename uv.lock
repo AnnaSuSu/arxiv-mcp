@@ -39,7 +39,7 @@ wheels = [
 ]
 
 [[package]]
-name = "arxiv-paper-mcp"
+name = "arxiv-paper-mcp-server"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
