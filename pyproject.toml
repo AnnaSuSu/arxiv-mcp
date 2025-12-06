@@ -1,6 +1,6 @@
 [project]
 name = "arxiv-paper-mcp-server"
-version = "0.1.0"
+version = "0.1.1"
 description = "MCP Server for searching and reading arXiv papers"
 readme = "README.md"
 license = "MIT"
@@ -31,6 +31,7 @@ Repository = "https://github.com/AnnaSuSu/arxiv-mcp"
 
 [project.scripts]
 arxiv-mcp-server = "arxiv_mcp_server:main"
+arxiv-paper-mcp-server = "arxiv_mcp_server:main"
 
 [build-system]
 requires = ["hatchling"]
