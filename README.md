@@ -16,7 +16,23 @@ A Model Context Protocol (MCP) server that enables LLMs to search, download, and
 
 ## Getting Started
 
-First, install the arXiv MCP server with your client.
+### Prerequisites
+
+This MCP server uses `uvx` to run. First, install `uv`:
+
+```bash
+# macOS/Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Or using Homebrew
+brew install uv
+```
+
+After installation, restart your terminal.
+
+### Installation
+
+Install the arXiv MCP server with your client.
 
 Standard config works in most tools:
 
