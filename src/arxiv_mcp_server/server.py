@@ -97,6 +97,43 @@ def get_paper(paper_id: str, section: str = "all") -> str:
 
 
 @mcp.tool()
+def download_paper(paper_id: str, target_dir: str | None = None) -> str:
+    """Download arXiv paper PDF to local filesystem.
+
+    Args:
+        paper_id: arXiv paper ID (e.g., "2401.12345")
+        target_dir: Optional target directory. If not specified, uses default storage.
+
+    Returns:
+        Path to the downloaded PDF file
+    """
+    # Search for the paper
+    papers = search_papers(paper_id, max_results=1)
+    if not papers:
+        return f"Paper {paper_id} not found."
+
+    paper = papers[0]
+
+    # Determine save path
+    if target_dir:
+        target_path = Path(target_dir)
+        target_path.mkdir(parents=True, exist_ok=True)
+        pdf_path = target_path / f"{paper_id.replace('/', '_')}.pdf"
+    else:
+        pdf_path = storage.get_pdf_path(paper_id)
+
+    # Download if not exists
+    if not pdf_path.exists():
+        try:
+            download_pdf(paper, str(pdf_path))
+            storage.save_paper_metadata(paper)
+        except Exception as e:
+            return f"Failed to download paper: {e}"
+
+    return f"PDF downloaded: {pdf_path}"
+
+
+@mcp.tool()
 def list_downloaded_papers() -> str:
     """List all locally downloaded papers.
 
